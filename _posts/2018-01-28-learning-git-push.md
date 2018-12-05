@@ -1,4 +1,7 @@
-# Git使用技巧之git push
+---
+title: Git使用技巧之git push
+tags: Git
+---
 git push命令用于将本地分支的更新，推送到远程主机。
 ```
 $ git push <远程主机名> <本地分支名>:<远程分支名>

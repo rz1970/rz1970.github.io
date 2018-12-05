@@ -1,9 +1,3 @@
-# rz1970.github.io
+# title: 充分利用余暇
 
-Tracking Learning Process
-
-## 目录
-
-1. [SEO](/seo)
-2. [Shortcut](/shortcut)
-3. [GPDB](/gpdb)
+## description: 业余生活要有意义,不要越轨。

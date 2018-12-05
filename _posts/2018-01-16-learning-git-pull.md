@@ -1,4 +1,8 @@
-# Git使用技巧之git pull
+---
+title: Git使用技巧之git pull
+tags: Git
+---
+
 `git pull`命令的作用是，取回远程主机某个分支的更新，再与本地的指定分支合并。
 ```
 $ git pull <远程主机名> <远程分支名>:<本地分支名>

@@ -1,4 +1,7 @@
-# Git使用技巧之git fetch
+---
+title: Git使用技巧之git fetch
+tags: Git
+---
 
 一旦远程主机的版本库有了更新(Git术语叫做commit)，需要将这些更新取回本地，这时就要用到`git fetch`命令。
 ```

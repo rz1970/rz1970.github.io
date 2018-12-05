@@ -1,0 +1,17 @@
+# GitHub Pages Defaults You Can Change
+#
+# github: [metadata]
+# encoding: UTF-8
+# kramdown:
+#   input: GFM
+#   hard_wrap: false
+# future: true
+# jailed: false
+# theme: jekyll-theme-primer
+# gfm_quirks: paragraph_end
+
+# Cayman Theme Config
+timezone: Asia/Shanghai 
+theme: jekyll-theme-cayman
+title: 充分利用余暇
+description: 业余生活要有意义,不要越轨。
