@@ -1,4 +1,7 @@
-# Yoast SEO 使用笔记
+---
+title: Yoast SEO 使用笔记
+tags: seo
+---
 
 1. Focus Keywords的使用
     + 在文章的title、heading、subheading中至少出现一次吧。Tip：建议title包含

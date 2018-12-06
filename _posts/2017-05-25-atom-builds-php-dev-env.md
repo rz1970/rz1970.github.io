@@ -1,4 +1,7 @@
-# 打造Atom PHP开发环境
+---
+title: 打造Atom PHP开发环境
+tags: php
+---
 
 需要安装的packages，通过`apm install package-name`来安装。
 ```

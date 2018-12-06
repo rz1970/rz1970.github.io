@@ -1,4 +1,7 @@
-# deploy php + nginx + php-fpm + yii2
+---
+title: deploy php + nginx + php-fpm + yii2
+tags: ["php", "yii2"]
+---
 
 根据Ref1 部署Yii2。注意：fastcgi_pass 修改为：fastcgi_pass unix:/var/run/php5-fpm.sock;
 
@@ -16,4 +19,4 @@ Reference:
 2. [Nginx](https://nginx.org/en/docs/)
 
 ## Update:
-当前通过Docekr+Volumn的方式来实现开发环境的搭建
+当前通过Docekr+Volume的方式来实现开发环境的搭建

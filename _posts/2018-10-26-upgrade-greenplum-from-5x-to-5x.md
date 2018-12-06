@@ -1,4 +1,7 @@
-# 12_Upgrade GP from 5.x to 5.x
+---
+title: Upgrade GP from 5.x to 5.x
+tags: greenplum
+---
 
 ```
 # su - gpadmin

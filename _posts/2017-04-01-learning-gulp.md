@@ -1,4 +1,7 @@
-# 前端构建工具之Gulp
+---
+title: 前端构建工具之Gulp
+tags: gulp
+---
 
 ## 全局安装部署Gulp-Cli
 1. gulp是基于[nodeJS](https://nodejs.org/en/)的一个前端构建工具。所以需要先到nodeJS的官网上下载安装nodejs。

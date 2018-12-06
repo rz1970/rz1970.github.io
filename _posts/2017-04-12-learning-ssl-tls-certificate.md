@@ -1,4 +1,7 @@
-# SSL/TLS Certificate
+---
+title: SSL/TLS Certificate
+tags: ["ssl","tls"]
+---
 
 ## Certificate Types
 

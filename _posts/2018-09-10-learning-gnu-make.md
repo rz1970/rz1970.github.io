@@ -1,4 +1,7 @@
-# Make (GNU Make 使用说明)
+---
+title: Make (GNU Make 使用说明)
+tags: make
+---
 
 + **Makefile**：在符合GNU Makefiel惯例的Makefile中，包含了一些基本的预先定义的操作
 + **make**：根据Makefile编译源代码，连接，生成目标文件，可执行文件。

@@ -1,4 +1,7 @@
-# OpenSSL vs. OpenSSH
+---
+title: OpenSSL vs. OpenSSH
+tags: ["openssl", "openssh"]
+---
 
 ## OpenSSH
 OpenSSH是SSH协议的开源版本（SSH：Secure SHell）。使用SSH透过计算机网络实现加密通讯，可以进行远程控制，在计算机之间传送文件等等。SSH传输的数据都进行了加密，比telnet,rcp,ftp,rlogin,rsh等以明文传输密码的工具更安全。

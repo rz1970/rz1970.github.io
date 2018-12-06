@@ -1,4 +1,7 @@
-# 在ubuntu 14.04上部署postgres
+---
+title: 在ubuntu 14.04上部署postgres
+tags: postgres
+---
 
 ## Installation
 Ubuntu's default repositories contain Postgres packages, so we can install them without a hassle using the apt packaging system.

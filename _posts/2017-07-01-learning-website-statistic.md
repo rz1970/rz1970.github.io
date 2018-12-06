@@ -1,4 +1,7 @@
-# 网站统计的名词说明
+---
+title: 网站统计的名词说明
+tags: seo
+---
 
 ## What is the difference between a hit, a page view, a visit, and a visitor
 
