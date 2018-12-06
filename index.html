@@ -2,19 +2,20 @@
 layout: default
 ---
 
-<ul class="post-list">
+<ul class="post-list" style="list-style: none; padding: 0px;">
   {% for post in site.posts %}
-    <li>
-      <span class="post-meta">
-        {{ post.date | date: "%b %-d, %Y" }}{% if post.author %} • {{ post.author }}{% endif %}
-      </span>
+    <li style="border-bottom: 1px dotted; padding: 6px 0px;">
+      <span class="post-meta"> {{ post.date | date: "%b %-d, %Y" }}{% if post.author %} • {{ post.author }}{% endif %} </span>
 
-      <h2>
+      <h1 style="margin: 0.88rem 0px; font-size: 1.8rem">
         <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">
           {{ post.title }}
-          <font size=-1>{% if post.subtitle %} <br><i> {{ post.subtitle }}{% endif %}</i></font>
+          {% if post.subtitle %}
+          <br />
+          <span style="font-size: 1rem"><i>{{ post.subtitle }}</i></span>
+          {% endif %}
         </a>
-      </h2>
+      </h1>
     </li>
   {% endfor %}
 </ul>
