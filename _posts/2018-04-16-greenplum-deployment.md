@@ -115,6 +115,7 @@ iptables 0:off 1:off 2:off 3:off 4:off 5:off 6:off
 3. **Disable firewalld(for CentOS)**
 
 + check the status of firewalld
+
 ```
 [root@mdw ~]# systemctl status firewalld
 ● firewalld.service - firewalld - dynamic firewall daemon
