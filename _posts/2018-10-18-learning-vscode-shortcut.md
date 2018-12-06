@@ -1,5 +1,5 @@
 ---
-title: Visual Studio Code 快捷方式学习
+title: Visual Studio Code 快捷键
 tags: shortcut
 ---
 

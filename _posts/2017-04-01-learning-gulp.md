@@ -16,6 +16,7 @@ If you have previously installed a version of gulp globally, please run `npm rm 
 ```
 $ npm install --global gulp-cli
 ```
+
 ## 每个工程中部署Gulp
 1. create your project folder
 ```

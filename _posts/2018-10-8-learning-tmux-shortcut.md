@@ -1,5 +1,5 @@
 ---
-title: Tmux 快捷方式学习
+title: Tmux 快捷键
 tags: shortcut
 ---
 

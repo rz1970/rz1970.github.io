@@ -1,5 +1,5 @@
 ---
-title: Macbook Pro 快捷方式学习
+title: Macbook Pro 快捷键
 tags: shortcut
 ---
 
