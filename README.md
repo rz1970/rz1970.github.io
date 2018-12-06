@@ -8,6 +8,5 @@
 2. Posts Front Matter:
 ---
 title: sample
-category: greenplum
-tags: learning
+tags: [learning,docker]
 ---

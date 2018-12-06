@@ -1,6 +1,5 @@
 ---
 title: 网站统计的名词说明
-category: learning
 tags: seo
 ---
 

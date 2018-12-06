@@ -1,6 +1,5 @@
 ---
 title: SSL/TLS Certificate
-category: learning
 tags: [ssl, tls]
 ---
 

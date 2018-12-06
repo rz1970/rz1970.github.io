@@ -1,6 +1,5 @@
 ---
 title: Git使用的8个小技巧
-category: Git
 tags: Git
 ---
 

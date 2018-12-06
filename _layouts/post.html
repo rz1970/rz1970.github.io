@@ -4,34 +4,24 @@
   <body>
     {% include header.html %}
     <main id="content" class="main-content" role="main">
+      {% if post %} {% assign article = post %} {% else %} {% assign article = page %} {% endif %}
       <article>
-            <h1 style="text-align: center">{{ page.title }}</h1>
-
-            <div class="post-categories">
-              {% if post %}
-                {% assign categories = post.categories %}
-              {% else %}
-                {% assign categories = page.categories %}
-              {% endif %}
-              {% for category in categories %}
-              <a href="{{site.baseurl}}/categories/#{{category|slugize}}">{{category}}</a>
-              {% unless forloop.last %}&nbsp;{% endunless %}
-              {% endfor %}
+        <div class="entry-header">
+            <div class="entry-meta">
+              <sub class="post-on">{{ article.date | date: "%b %-d, %Y" }}</sub>
             </div>
-
-            {{ content }}
-
-            <div class="post-tags">
-              {% if post %}
-                {% assign tags = post.tags %}
-              {% else %}
-                {% assign tags = page.tags %}
-              {% endif %}
-              {% for tag in tags %}
-              <a href="{{site.baseurl}}/categories/#{{tag|slugize}}">{{tag}}</a>
-              {% unless forloop.last %}&nbsp;{% endunless %}
-              {% endfor %}
-            </div>
+            <h1 style="text-align: center; margin: 0.25rem 0 2.5rem; color: deepskyblue">{{ article.title }}</h1>
+        </div>
+        <div class="entry-content">
+          {{ content }}
+        </div>
+        <div class="entry-footer" style="padding: 2em 0px; margin-top: 2em; border-top: 1px solid lightgray">
+          <div class="post-tags">
+            {% for tag in article.tags %}
+            <a style="display: inline-block; border: none; padding: 1px 8px; margin: 0px 0.45em; line-height: normal; background: aliceblue;" href="{{site.baseurl}}/tags/#{{tag|slugize}}">{{tag}}</a>
+            {% endfor %}
+          </div>
+        </div>
       </article>
     </main>
     {% include footer.html %}

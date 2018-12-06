@@ -1,6 +1,5 @@
 ---
 title: Git使用技巧之git push
-category: Git
 tags: Git
 ---
 git push命令用于将本地分支的更新，推送到远程主机。

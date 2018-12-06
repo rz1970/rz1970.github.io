@@ -1,6 +1,5 @@
 ---
 title: 数据管理及查询
-category: Greenplum
 tags: greenplum
 ---
 

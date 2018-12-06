@@ -1,6 +1,5 @@
 ---
 title: Git使用技巧之git remote
-category: Git
 tags: Git
 --- 
 

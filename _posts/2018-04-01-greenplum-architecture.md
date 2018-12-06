@@ -1,6 +1,5 @@
 ---
 title: Greenplum 架构学习
-category: Greenplum
 tags: greenplum
 ---
 

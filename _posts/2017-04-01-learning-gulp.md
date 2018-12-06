@@ -1,6 +1,5 @@
 ---
 title: 前端构建工具之Gulp
-category: learning
 tags: gulp
 ---
 
