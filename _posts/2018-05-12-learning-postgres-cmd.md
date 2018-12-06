@@ -1,6 +1,6 @@
 ---
 title: 初探postgres命令
-tags: ["greenplum", "postgres"]
+tags: [greenplum, postgres]
 ---
 
 

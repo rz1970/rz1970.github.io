@@ -1,5 +1,6 @@
 ---
 title: Git使用技巧之git fetch
+category: Git
 tags: Git
 ---
 

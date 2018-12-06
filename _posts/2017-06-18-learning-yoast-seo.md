@@ -1,5 +1,6 @@
 ---
 title: Yoast SEO 使用笔记
+category: learning
 tags: seo
 ---
 

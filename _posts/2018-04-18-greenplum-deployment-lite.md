@@ -1,5 +1,6 @@
 ---
 title: 部署Greenplum(精简版)
+category: Greenplum
 tags: greenplum
 ---
 

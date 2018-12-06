@@ -1,5 +1,6 @@
 ---
 title: Git使用技巧之git pull
+category: Git
 tags: Git
 ---
 

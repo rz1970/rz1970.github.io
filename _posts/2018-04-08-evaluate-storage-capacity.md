@@ -1,5 +1,6 @@
 ---
 title: Greenplum 评估存储容量
+category: Greenplum
 tags: greenplum
 ---
 

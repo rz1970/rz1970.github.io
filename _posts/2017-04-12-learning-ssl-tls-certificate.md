@@ -1,6 +1,7 @@
 ---
 title: SSL/TLS Certificate
-tags: ["ssl","tls"]
+category: learning
+tags: [ssl, tls]
 ---
 
 ## Certificate Types

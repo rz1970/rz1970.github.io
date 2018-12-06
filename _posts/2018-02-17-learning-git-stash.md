@@ -1,5 +1,6 @@
 ---
 title: Git使用技巧之git stash
+category: Git
 tags: Git
 ---
 `git stash`可以用于暂存代码。比如需要切换一个`branch`去做其他的事情，但是当前又有一些代码没有`commit`。你显然也不会想要把这些修改`checkout`。该命令就是为了解决这一个问题。

@@ -1,5 +1,6 @@
 ---
 title: 使用 TPC-DS 进行数据库测试
+category: Greenplum
 tags: greenplum
 ---
 
