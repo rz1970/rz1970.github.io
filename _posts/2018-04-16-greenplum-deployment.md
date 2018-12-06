@@ -1,4 +1,7 @@
-# 02_GP部署
+---
+title: 部署Greenplum
+tags: greenplum
+---
 
 ## Setup CentOS7
 

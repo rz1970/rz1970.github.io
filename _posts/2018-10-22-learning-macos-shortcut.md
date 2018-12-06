@@ -1,4 +1,7 @@
-# Macbook Pro
+---
+title: Macbook Pro 快捷方式学习
+tags: shortcut
+---
 
 ## 切换
 ```

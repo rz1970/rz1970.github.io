@@ -1,8 +1,11 @@
-# 01_GP架构
+---
+title: Greenplum 架构学习
+tags: greenplum
+---
 
 ## High-level overview of GPDB system architecture
 
-![High-level overview of the Greenplum Database system architecture](/Users/Ryan/Boostnote/uploads/highlevel_arch.jpg)
+![High-level overview of the Greenplum Database system architecture](/assets/images/highlevel_arch.jpg)
 
 GPDB:
 + software-only solution
@@ -46,7 +49,7 @@ GPDB:
 + GPDB does the additional **packet verification** and **checking not performed** by UDP,
 + configuration parameter: *gp_interconnect_type*
 + Example Network Interface Architecture:
-![Example Network Interface Architecture](/Users/Ryan/Boostnote/uploads/multi_nic_arch.jpg)
+![Example Network Interface Architecture](/assets/images/multi_nic_arch.jpg)
 
 ## ETL Hosts for Data Loading
 

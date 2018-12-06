@@ -1,4 +1,7 @@
-# Visual Studio Code
+---
+title: Visual Studio Code 快捷方式学习
+tags: shortcut
+---
 
 ## 主命令框
 ```

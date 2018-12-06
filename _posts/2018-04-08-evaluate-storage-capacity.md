@@ -1,4 +1,7 @@
-# 01_评估存储容量
+---
+title: Greenplum 评估存储容量
+tags: greenplum
+---
 
 ## 计算磁盘的可用容量
 

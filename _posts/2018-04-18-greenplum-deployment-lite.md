@@ -1,4 +1,7 @@
-# 02_GP部署Lite
+---
+title: 部署Greenplum(精简版)
+tags: greenplum
+---
 
 ## Install and Configurate OS
 1. Version：CentOS7.4 (*CentOS-7-x86_64-DVD-1708.iso*)

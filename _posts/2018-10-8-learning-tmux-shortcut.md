@@ -1,4 +1,7 @@
-# Tmux 快捷方式学习
+---
+title: Tmux 快捷方式学习
+tags: shortcut
+---
 
 ## tmux 常用命令
 

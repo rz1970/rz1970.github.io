@@ -1,4 +1,7 @@
-# TPC-DS 测试
+---
+title: 使用 TPC-DS 进行数据库测试
+tags: greenplum
+---
 
 ## 编译与生成测试数据
 1. 编译

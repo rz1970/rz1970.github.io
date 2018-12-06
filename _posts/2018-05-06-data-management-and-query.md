@@ -1,4 +1,8 @@
-# 05_数据管理及查询
+---
+title: 数据管理及查询
+tags: greenplum
+---
+
 
 ## GP的并发控制
 MVCC(多版本控制模型)：Mutltiversion Concurrency Control: 避免数据库事务显示锁定，最大化减少锁争用以确保多用户环境下的性能。

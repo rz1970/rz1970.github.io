@@ -1,4 +1,9 @@
-# 初探postgres命令
+---
+title: 初探postgres命令
+tags: ["greenplum", "postgres"]
+---
+
+
 ## 用户与角色
 首先：在PostgreSQL里没有区分用户和角色的概念，`"CREATE USER"`为 `"CREATE ROLE"`的别名，这两个命令几乎是完全相同的，唯一的区别是`"CREATE USER"`命令创建的用户默认带有`LOGIN`属性，而`"CREATE ROLE"`命令创建的用户默认不带`LOGIN`属性。
 

@@ -1,11 +1,7 @@
 ---
-
-date: 2018-12-01 11:30:28
-category: unknown
+title: CentOS开机自动联网
 tags: centos
 ---
-
-# CentOS开机自动联网
 
 通过修改配置文件将ONBOOT='no'修改为yes即可。
 
