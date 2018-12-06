@@ -43,7 +43,7 @@ gulp.task('default', function() {
 ```
 $ gulp
 ```
-The default task will run and do nothing.To run individual tasks, use `gulp <task> <othertask>`.
+The default task will run and do nothing. To run individual tasks, use `gulp <task> <othertask>`.
 
 ## gulp核心API
 Gulp的核心API只有4个：`src`、`dest`、`task`、`watch`
