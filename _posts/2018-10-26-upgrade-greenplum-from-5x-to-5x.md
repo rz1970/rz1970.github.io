@@ -3,7 +3,7 @@ title: Upgrade GP from 5.x to 5.x
 tags: greenplum
 ---
 
-```
+```bash
 # su - gpadmin
 $ gpstop -a
 # chown -R gpadmin:gpadmin /usr/local/greenplum*
