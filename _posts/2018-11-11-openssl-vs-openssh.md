@@ -158,7 +158,7 @@ openssl pkcs12 -export -in subcert.crt -inkey rsakey1.pem -out subcert.p12
 4.6 查看证书内容
 
 ```bash
-openssl x509 -noout -text -in rootca.crt 
+openssl x509 -noout -text -in rootca.crt
 ```
 
 4.7 验证证书

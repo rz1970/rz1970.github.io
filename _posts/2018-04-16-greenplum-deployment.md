@@ -3,47 +3,49 @@ title: 部署Greenplum
 tags: greenplum
 ---
 
-## Setup CentOS7
+# Setup CentOS7
 
-1. version: 7.4 (*CentOS-7-x86_64-DVD-1708.iso*)
-2. Software Selection when install and after install
-+ when installation
+1.version: 7.4 (*CentOS-7-x86_64-DVD-1708.iso*)
+
+2.Software Selection when install and after install
+
+2.1 when installation
 
 ```text
 Minimal Install
 Add-Ons: Debug tools, Compatibility Libraries, Development tools, Security Tools
 ```
 
-+ after installation, modify the network configuration to connect the network。
+2.2 after installation, modify the network configuration to connect the network。
 
 ```bash
 vi /etc/sysconfig/network-scripts/ifcfg-enp0s3
 ```
 
-change `ONBOOT=no` to `ONBOOT=yes`, then `reboot`.
-after restarting, install the package using `yum`
+change `ONBOOT=no` to `ONBOOT=yes`, then `reboot`. after restarting, install the package using `yum`
 
 ```bash
 yum install net-tools ntp
 ```
 
-+ language selection
+2.3 language selection
 
-```bash
+```plain
 ENGLISH
 ```
 
-## Config the network and add static ip address
+# Config the network and add static ip address
 
-1. in the virtualbox vm, add two netword cards. One is `NAT`, the other is `Host-Only`
-2. create the ifcfg-enp0s8 file
+1 in the virtualbox vm, add two netword cards. One is `NAT`, the other is `Host-Only`
+
+2 create the ifcfg-enp0s8 file
 
 ```bash
 cd /etc/sysconfig/network-scripts/
 cp ifcfg-enp0s3 ifcfg-enp0s8
 ```
 
-3. config the static ip address. `vi ifcfg-enp0s8`, and modify the `BOOTPROTO`, `NAME`, `DEVICE`, `DEFROUTE`
+3 config the static ip address. `vi ifcfg-enp0s8`, and modify the `BOOTPROTO`, `NAME`, `DEVICE`, `DEFROUTE`
 
 ```bash
 TYPE=Ethernet
@@ -63,7 +65,7 @@ DEVICE=enp0s3 => enp0s8
 ONBOOT=yes
 ```
 
-4. add the following lines
+4 add the following lines
 
 ```bash
 IPADDR=192.168.56.101 # ip地址
@@ -73,27 +75,28 @@ GATEWAY=192.168.56.1 # 网关地址
 BROADCAST=192.168.56.255 # 广播地址
 ```
 
-5. modify the hostname
+5 modify the hostname
 
 ```bash
 hostname mdw
 echo mdw > /etc/hostname
 ```
 
-6. make modification work, reboot the machine
+6 make modification work, reboot the machine
 
 ```bash
 reboot
 ```
 
-## Setup Greenplum
+# Setup Greenplum
 
-### System Requirements
+## System Requirements
 
-0. **File Systems**: `xfs` required for `data storage` on SUSE Linux and Red Hat (`ext3` supported for `root` file system)
+0 **File Systems**: `xfs` required for `data storage` on SUSE Linux and Red Hat (`ext3` supported for `root` file system)
 
-1. **Disable SELinux**
-+ check the status of SELinux
+1 **Disable SELinux**
+
+1.1 check the status of SELinux
 
 ```bash
 [root@mdw ~]# sestatus
@@ -108,7 +111,7 @@ Policy deny_unknown status:     allowed
 Max kernel policy version:      28
 ```
 
-+ disable the SELinux.
+1.2 disable the SELinux.
 
 ```bash
 vi  /etc/selinux/config
@@ -121,24 +124,24 @@ change `SELINUX=enforcing` to `SELINUX=disabled`, then `reboot` and check the st
 SELinux status:                 disabled
 ```
 
-2. **Disable iptables(for SUSE Linux)**
+2 **Disable iptables(for SUSE Linux)**
 
-+ checks the status of iptables, if the output like following is off
+2.1 checks the status of iptables, if the output like following is off
 
 ```bash
 # /sbin/chkconfig --list iptables
 iptables 0:off 1:off 2:off 3:off 4:off 5:off 6:off
 ```
 
-+ disabled the iptables, then `reboot`
+2.2 disabled the iptables, then `reboot`
 
 ```bash
 # /sbin/chkconfig iptables off
 ```
 
-3. **Disable firewalld(for CentOS)**
+3 **Disable firewalld(for CentOS)**
 
-+ check the status of firewalld
+3.1 check the status of firewalld
 
 ```bash
 [root@mdw ~]# systemctl status firewalld
@@ -160,7 +163,7 @@ Mar 22 02:37:30 mdw firewalld[762]: WARNING: ICMP type 'reject-route' is not sup
 Mar 22 02:37:30 mdw firewalld[762]: WARNING: reject-route: INVALID_ICMPTYPE: No supported ICMP type., ignoring for run-time.
 ```
 
-+ disabled the firewalld
+3.2 disabled the firewalld
 
 ```bash
 [root@mdw ~]# systemctl stop firewalld.service
@@ -169,7 +172,7 @@ Removed symlink /etc/systemd/system/multi-user.target.wants/firewalld.service.
 Removed symlink /etc/systemd/system/dbus-org.fedoraproject.FirewallD1.service.
 ```
 
-+ then `reboot` and check the status
+3.3 then `reboot` and check the status
 
 ```bash
 [root@mdw ~]# systemctl status firewalld
@@ -179,20 +182,20 @@ Removed symlink /etc/systemd/system/dbus-org.fedoraproject.FirewallD1.service.
      Docs: man:firewalld(1)
 ```
 
-### Setting the Greenplum Recommended OS Parameters
+## Setting the Greenplum Recommended OS Parameters
 
-1. edit the `/etc/hosts` file and add all hostname and interface address
+1 edit the `/etc/hosts` file and add all hostname and interface address
 
-```bash
+```plain
 127.0.0.1   mdw, mdw.localdomain
 192.168.56.101   mdw
 192.168.56.111   sdw1
 192.168.56.112   sdw2
 ```
 
-2. edit the `/etc/sysctl.conf`, add following, then `reboot`
+2 edit the `/etc/sysctl.conf`, add following, then `reboot`
 
-```bash
+```plain
 kernel.shmmax = 500000000
 kernel.shmmni = 4096
 kernel.shmall = 4000000000
@@ -214,33 +217,34 @@ net.core.wmem_max = 2097152
 vm.overcommit_memory = 2
 ```
 
-3. Set the following parameters in the `/etc/security/limits.conf` file
+3 Set the following parameters in the `/etc/security/limits.conf` file
 
-```bash
+```plain
 * soft nofile 65536
 * hard nofile 65536
 * soft nproc 131072
 * hard nproc 131072
 ```
 
-4. edit the `/etc/fstab` file and change the mount to `(rw,nodev,noatime,nobarrier,inode64)`
+4 edit the `/etc/fstab` file and change the mount to `(rw,nodev,noatime,nobarrier,inode64)`
 
 ```bash
+# change following line one to three
 /dev/mapper/centos-root /     xfs     defaults        0 0
-=>
+# => #
 /dev/mapper/centos-root /     xfs     nodev,noatime,nobarrier,inode64        0 0
 ```
 
-5. Set blockdev (read-ahead) on a device
+5 Set blockdev (read-ahead) on a device
 
-+ verify the read-ahead value of a disk device
+5.1 verify the read-ahead value of a disk device
 
 ```bash
 [root@mdw ~]# blockdev --getra /dev/sda
 8192
 ```
 
-+ set blockdev (read-ahead) on a device
+5.2 set blockdev (read-ahead) on a device
 
 ```bash
 [root@mdw ~]# blockdev --setra 16384 /dev/sda
@@ -248,14 +252,14 @@ vm.overcommit_memory = 2
 16384
 ```
 
-+ centos7: if blockdev size reset back to 8192 after system reboot, please set:
+5.3 centos7: if blockdev size reset back to 8192 after system reboot, please set:
 
 ```bash
 # echo '/sbin/blockdev --setra 16384 /dev/sda' >> /etc/rc.d/rc.local
 # chmod u+x /etc/rc.d/rc.local
 ```
 
-6. set linux disk I/O scheduler for disk access, and the `deadline` scheduler option is recommended
+6 set linux disk I/O scheduler for disk access, and the `deadline` scheduler option is recommended
 
 ```bash
 [root@mdw ~]# echo deadline > /sys/block/sda/queue/scheduler
@@ -263,7 +267,7 @@ vm.overcommit_memory = 2
 noop [deadline] cfq
 ```
 
-7. specify the I/O scheduler at boot time on systems that use grub2
+7 specify the I/O scheduler at boot time on systems that use grub2
 
 ```bash
 [root@mdw ~]# grubby --update-kernel=ALL --args="elevator=deadline"
@@ -284,7 +288,7 @@ index=2
 non linux entry
 ```
 
-8. Disable Transparent Huge Pages (THP)
+8 Disable Transparent Huge Pages (THP)
 
 ```bash
 [root@mdw ~]# grubby --update-kernel=ALL --args="transparent_hugepage=never"
@@ -292,13 +296,13 @@ non linux entry
 always madvise [never]
 ```
 
-9. Disable IPC object removal for RHEL 7.2 or CentOS 7.2. Edit `/etc/systemd/logind.conf` and umcomment or add `RemoveIPC=no`, then restart the service to make it work
+9 Disable IPC object removal for RHEL 7.2 or CentOS 7.2. Edit `/etc/systemd/logind.conf` and umcomment or add `RemoveIPC=no`, then restart the service to make it work
 
 ```bash
 service systemd-logind restart
 ```
 
-### Creating the Greenplum Database Administrative User Account(Master Only)
+## Creating the Greenplum Database Administrative User Account(Master Only)
 
 ```bash
 # groupadd gpadmin
@@ -308,39 +312,40 @@ New password: <changeme>
 Retype new password: <changeme>
 ```
 
-### Installing the Greenplum Database Software(Master Only)
+## Installing the Greenplum Database Software(Master Only)
 
-1. Log in as `root` on the machine that will become the Greenplum Database master host
-2. Upload the Binary Distribution
-3. Launch the installer using bash
+1 Log in as `root` on the machine that will become the Greenplum Database master host
+2 Upload the Binary Distribution
+3 Launch the installer using bash
 
 ```bash
 [root@mdw ~]# bash greenplum-db-5.5.0-rhel7-x86_64.bin
 ```
 
-4. If you installed as root, change the ownership and group of the installed files to gpadmin
+4 If you installed as root, change the ownership and group of the installed files to gpadmin
 
 ```bash
 [root@mdw ~]# chown -R gpadmin /usr/local/greenplum*
 [root@mdw ~]# chgrp -R gpadmin /usr/local/greenplum*
 ```
 
-### Installing and Configuring Greenplum on all Hosts
+## Installing and Configuring Greenplum on all Hosts
 
-1. **To install and configure Greenplum Database on all specified hosts**
-+ Log in to the master host as gpadmin
+1 **To install and configure Greenplum Database on all specified hosts**
+
+1.1 Log in to the master host as root
 
 ```bash
 [root@mdw ~]# su -
 ```
 
-+ Source the path file from your master host's Greenplum Database installation directory
+1.2 Source the path file from your master host's Greenplum Database installation directory
 
 ```bash
 [root@mdw ~]# source /usr/local/greenplum-db/greenplum_path.sh
 ```
 
-+ Create a file called hostlist with all hosts as following and seglist without mdw in `/home/gpadmin/gpconfig/` dir.
+1.3 Create a file called hostlist with all hosts as following and seglist without mdw in `/home/gpadmin/gpconfig/` dir.
 
 ```text
 mdw
@@ -348,35 +353,35 @@ sdw1
 sdw2
 ```
 
-+ Config ssh key exchange(master server and gpadmin user)
+1.4 Config ssh key exchange(master server and gpadmin user)
 
 ```bash
 [root@mdw ~]# gpssh-exkeys -f /home/gpadmin/gpconfig/hostlist
 ```
 
-+ Run the `gpseginstall` utility referencing the hostfile_exkeys file you just created
+1.5 Run the `gpseginstall` utility referencing the hostfile_exkeys file you just created
 
 ```bash
 [root@mdw ~]# gpseginstall -f /home/gpadmin/gpconfig/seglist
 ```
 
-+ Confirm installation
+1.6 Confirm installation
 
 ```bash
 [root@mdw ~]# su - gpadmin
 [gpadmin@mdw ~]$ gpssh -f ~/gpconfig/hostlist -e ls -l $GPHOME
 ```
 
-2. **Creating the Data Storage Areas**
+2 **Creating the Data Storage Areas**
 
-+ To create the data directory location on the master
+2.1 To create the data directory location on the master
 
 ```bash
 [root@mdw /]# mkdir -p /data/master
 [root@mdw /]# chown gpadmin /data/master
 ```
 
-+ Creating Data Storage Areas on Segment Hosts
+2.2 Creating Data Storage Areas on Segment Hosts
 
 ```bash
 [root@mdw /]# source /usr/local/greenplum-db/greenplum_path.sh
@@ -394,29 +399,29 @@ sdw2
 [sdw1] chown gpadmin /data/mirror
 ```
 
-3. **Synchronizing System Clocks**
+3 **Synchronizing System Clocks**
 
-+ on master, edit `/etc/ntp.conf` file, set server to the data center's NTP time server
+3.1 on master, edit `/etc/ntp.conf` file, set server to the data center's NTP time server
 
 ```bash
 server 202.108.6.95       #cn.ntp.org.cn
 ```
 
-+ On each segment host, edit the `/etc/ntp.conf` file and set as following
+3.2 On each segment host, edit the `/etc/ntp.conf` file and set as following
 
 ```bash
 server mdw prefer
 server smdw
 ```
 
-+ On the standby master host, edit the /etc/ntp.conf file and set as following
+3.3 On the standby master host, edit the /etc/ntp.conf file and set as following
 
 ```bash
 server mdw prefer
 server 202.108.6.95
 ```
 
-+ On the master host, use the NTP daemon synchronize the system clocks on all Greenplum hosts.
+3.4 On the master host, use the NTP daemon synchronize the system clocks on all Greenplum hosts.
 
 ```bash
 [root@mdw /]# gpssh -f /home/gpadmin/gpconfig/hostlist -v -e 'ntpd'
@@ -435,7 +440,7 @@ Using delaybeforesend 0.05 and prompt_validation_timeout 1.0
 [Cleanup...]
 ```
 
-+ enable ntpd service autostart( all host)
+3.5 enable ntpd service autostart( all host)
 
 ```bash
 [root@mdw /]# gpssh -f /home/gpadmin/gpconfig/hostlist -e 'systemctl disable chronyd.service'
@@ -443,17 +448,17 @@ Using delaybeforesend 0.05 and prompt_validation_timeout 1.0
 [root@mdw /]# gpssh -f /home/gpadmin/gpconfig/hostlist -e 'systemctl start ntpd.service'
 ```
 
-4. Validating Your Systems
+4 Validating Your Systems
 
-+ Validating OS Settings
+4.1 Validating OS Settings
 
 ```bash
 gpcheck -f ~/gpconfig/hostlist -m mdw
 ```
 
-5. Initializing a Greenplum Database System
+5 Initializing a Greenplum Database System
 
-+ Log in as gpadmin
+5.1 Log in as gpadmin
 
 ```bash
 [root@mdw /]# su - gpadmin
@@ -461,16 +466,16 @@ Last login: Thu Mar 22 05:09:20 EDT 2018 on pts/0
 [gpadmin@mdw ~]$
 ```
 
-+ Make a copy of the gpinitsystem_config file to use as a starting point
+5.2 Make a copy of the gpinitsystem_config file to use as a starting point
 
 ```bash
 [gpadmin@mdw ~]$ cp /usr/local/greenplum-db/docs/cli_help/gpconfigs/gpinitsystem_config ~/gpconfig/gpinitsystem_config
 ```
 
-+ run the initialization utility
+5.3 run the initialization utility
 
 ```bash
 [gpadmin@mdw ~]$ gpinitsystem -c gpconfig/gpinitsystem_config -h gpconfig/seglist
 ```
 
-+ see the `Greenplum Database instance successfully created.` You install successfully
+5.4 see the `Greenplum Database instance successfully created.` You install successfully

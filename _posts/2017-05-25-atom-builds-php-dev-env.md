@@ -4,14 +4,15 @@ tags: php
 ---
 
 需要安装的packages，通过`apm install package-name`来安装。
-```
-$ apm install linter-swagger // 检查swagger语法错误
-$ apm install linter-php // 检查语法错误
-$ apm install autocomplete-php // php 自动补全
-$ apm install http-post // A simple Atom.io http-post to test RESTful API.
+
+```bash
+[user@localhost]$ apm install linter-swagger // 检查swagger语法错误
+[user@localhost]$ apm install linter-php // 检查语法错误
+[user@localhost]$ apm install autocomplete-php // php 自动补全
+[user@localhost]$ apm install http-post // A simple Atom.io http-post to test RESTful API.
 ```
 
-atom推荐的插件
+atom推荐的插件:
 1. color-picker: 拾色器
 2. file-icons： 美化文件图标
 3. docblockr：方便注释

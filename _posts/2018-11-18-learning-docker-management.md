@@ -17,10 +17,10 @@ manage image
 
 1. **`bridge`**: default network driver. Bridge networks are usually used when your applications run in standalone containers that need to communicate.
 2. **`host`**: only available for `swarm services on Docker 17.06 and higher`. For standalone containers, remove network isolation between the container and the Docker host, and use the host’s networking directly.
-3. **`overlay`**: Overlay networks connect multiple Docker daemons together and enable swarm services to communicate with each other. 
-4. **`macvlan`**: Macvlan networks allow you to assign a MAC address to a container, making it appear as a physical device on your network. 
-5. **`none`**: For this container, disable all networking. Usually used in conjunction with a custom network driver. 
-6. **`Network plugins`**: You can install and use third-party network plugins with Docker. 
+3. **`overlay`**: Overlay networks connect multiple Docker daemons together and enable swarm services to communicate with each other.
+4. **`macvlan`**: Macvlan networks allow you to assign a MAC address to a container, making it appear as a physical device on your network.
+5. **`none`**: For this container, disable all networking. Usually used in conjunction with a custom network driver.
+6. **`Network plugins`**: You can install and use third-party network plugins with Docker.
 
 # docker plugin
 

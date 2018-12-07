@@ -11,7 +11,8 @@ tags: centos
 3. 重启机器即可完成
 
 命令如下：
-```
+
+```bash
 # ifconfig -a
 # cd /etc/sysconfig/network-scripts/
 # vi ifcfg-eth0
