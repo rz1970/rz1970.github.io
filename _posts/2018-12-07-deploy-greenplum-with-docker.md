@@ -80,7 +80,7 @@ greenplum-db-5.14.0-rhel7-x86_64.bin
 3.执行greenplum的bin文件，将其安装在`/home/gpadmin`目录下.
 
 ```bash
-[root@mdw ~]# bash greenplum-db-5.5.0-rhel7-x86_64.bin
+[root@mdw ~]# bash greenplum-db-5.14.0-rhel7-x86_64.bin
 ```
 
 参考如下：
