@@ -5,9 +5,9 @@ tags: postgresql
 
 # The Structure
 
-一般位于`PGDATA`的这个环境变量下。
+一般位于`PGDATA`的这个环境变量下。以下内容以 PostgreSQL 9.6 版本为例
 
-```pg9.6, plain
+```plain
 PG_VERSION                  # version file. 一个包含PostgreSQL主版本号的文件
 base                        # use to store database file(SELECT oid, datname FROM pg_database). 包含每个数据库对应的子目录的子目录
 global                      # under global, all the filenode is hard-code(select oid,relname,relfilenode from pg_class where relfilenode=0 order by oid). 包含集簇范围的表的子目录，比如pg_database
@@ -36,7 +36,7 @@ postmaster.pid              # pid file of postmaster progress. 一个锁文件�
 
 ## global 目录
 
-```global sample plain
+```plain
 pg_control
 pg_internal.init
 pg_filenode.map
@@ -69,7 +69,7 @@ pg_filenode.map
 
 用于存放数据库的所有实体文件。
 
-```base sample plain
+```plain
 16384
     45692
     45692_fsm
